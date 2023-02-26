@@ -5,7 +5,7 @@ function App() {
     <div className="App">
      
 <ClassBasedComponents/>
-<hi>hello</hi>
+
      
     </div>
   );
