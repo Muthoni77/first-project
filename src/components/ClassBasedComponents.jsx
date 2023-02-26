@@ -2,9 +2,10 @@ import React, { Component } from "react";
 
 class ClassBasedComponents extends Component{
 
-state= {
+state = {
     //write all state properties inside of this
-    count : 0 //initial value of count property
+    count : 0, //initial value of count property
+    flag : false
 }
 handleClick =()=> {
     const {count}=this.state;
@@ -16,6 +17,22 @@ handleClick =()=> {
 
     })
 }
+componentDidMount(){
+    console.log("component is mounted");
+}
+componentDidUpdate(prevProps , prevState){
+    console.log(prevState , this.state);
+    if( prevState && prevState.count !== this.state.count && this.state.count === 10)
+    {
+        this.setState({
+           flag: true 
+        })
+    }
+
+}
+componentWillUnmount(){
+    
+}
 
     render(){
         console.log(this.state);
@@ -23,7 +40,15 @@ handleClick =()=> {
             
              <div>
                  <button onClick={this.handleClick}>Click</button>
+                 {
+                this.state.count === 5 && "count is 5"
+             }
+
+             {
+                this.state.flag  && <p> flag is true </p>
+             }
              </div>   
+            
             
         )
     }
