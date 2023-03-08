@@ -4,11 +4,12 @@
 // useContext
 // useRef
 
-import useFetch from "../CustomHook";
+import HOC from "../HOC";
 
-function FunctionalBasedComponent() {
-  const {data} = useFetch('https://jsonplaceholder.typicode.com/posts');
-  console.log(data);
+
+
+function FunctionalBasedComponent(props) {
+ console.log(props);
 
   return (
   <div>
@@ -16,4 +17,4 @@ function FunctionalBasedComponent() {
   );
 }
 
-export default FunctionalBasedComponent;
+export default HOC(FunctionalBasedComponent);
