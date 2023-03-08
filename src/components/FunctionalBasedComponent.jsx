@@ -4,34 +4,16 @@
 // useContext
 // useRef
 
-import React, { useReducer } from 'react'
+import useFetch from "../CustomHook";
 
-const initialState = {
-  flag: false,
-};
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'TOGGLE_BUTTON':
-      console.log(state, action);
-
-      return {
-        ...state,
-        flag: !state.flag
-      };
-
-    default:
-      return state
-  }
-}
 function FunctionalBasedComponent() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
+  const {data} = useFetch('https://jsonplaceholder.typicode.com/posts');
+  console.log(data);
 
   return (
-    <div>
-      <button onClick={() => dispatch({ type: 'TOGGLE_BUTTON' })}>Toggle </button>
-    </div>
+  <div>
+  </div>
   );
 }
 
-export default FunctionalBasedComponent
+export default FunctionalBasedComponent;
